@@ -38,7 +38,7 @@ const main = async () => {
     
     const interface = () => {
         console.clear();
-        rl.question("Wanna know if there are many more of us today? \n", (res) => {
+        rl.question("Wanna know if there are many more of us today? (y/n)\n", (res) => {
             if (res === 'yes' || res === 'y' || res === 'Y' || res === 'Yes' || res === 'YES' || res === 'oui' || res === 'OUI' || res === 'Oui') {
                 const resTreatment = () => {
                 rl.question("Select a country !\n", (res) => {
@@ -46,10 +46,11 @@ const main = async () => {
                     const resCheck = countries.find(word => word.name === choice);
                     if (resCheck) {
                         console.log(resCheck);
-                        rl.question("Another one ?\n", (res) => {
+                        rl.question("Another one ? (y/n)\n", (res) => {
                             if (res === 'yes' || res === 'y' || res === 'Y' || res === 'Yes' || res === 'YES' || res === 'oui' || res === 'OUI' || res === 'Oui') {
                                 resTreatment();
                             } else {
+                                console.log('Ok bye !');
                                 rl.close();
                             }
                         });
@@ -61,7 +62,7 @@ const main = async () => {
                 };
                 resTreatment();
             } else if (res === 'no' || res === 'No' || res === 'NO' || res === 'nO' || res === 'non' || res ==='Non' || res === 'n' || res === 'N') {
-                    console.log('Ok bye !')
+                    console.log('Ok bye !');
                     rl.close();
                 } else {
                     console.log(`Sorry I did not understand ${res}! Try yes/no or y/n... `);
